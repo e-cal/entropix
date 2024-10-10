@@ -1,4 +1,7 @@
+Opinionated refactor.
+
 # entropix
+
 Entropy Based Sampling and Parallel CoT Decoding
 
 The goal is to use entropy to make context aware sampling. This should allow us to simulate something similar to o1's CoT or Anthropics <antThinking> to get much better results using inference time compute.
