@@ -11,10 +11,10 @@ from functools import partial
 
 from entropix.config import LLAMA_1B_PARAMS
 from entropix.tokenizer import Tokenizer
-from entropix.torch_kvcache import KVCache
-from entropix.torch_model import xfmr
-from entropix.torch_weights import XfmrWeights, LayerWeights, load_weights
-from entropix.torch_sampler import sample
+from entropix.torch.kvcache import KVCache
+from entropix.torch.model import xfmr
+from entropix.torch.weights import XfmrWeights, LayerWeights, load_weights
+from entropix.torch.sampler import sample
 from entropix.prompts import prompt, bp1
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

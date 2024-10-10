@@ -67,7 +67,7 @@ run it (jax)
 
 run it (torch)
 ```bash
- PYTHONPATH=. poetry run python entropix/torch_main.py
+ PYTHONPATH=. poetry run python entropix/torch/main.py
 ```
 
 

@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 from typing import Tuple
 
-from entropix.torch_main import calculate_varentropy_logsoftmax, _sample
+from entropix.torch.main import calculate_varentropy_logsoftmax, _sample
 
 class MCTSSearch:
     def __init__(self, cxfmr, xfmr_weights, model_params, freqs_cis, kvcache):

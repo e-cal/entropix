@@ -4,9 +4,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from entropix.config import ModelParams
-from entropix.torch_kvcache import KVCache
-from entropix.torch_weights import XfmrWeights, LayerWeights
-from entropix.torch_stats import AttnStats
+from entropix.torch.kvcache import KVCache
+from entropix.torch.weights import XfmrWeights, LayerWeights
+from entropix.torch.stats import AttnStats
 
 DEFAULT_MASK_VALUE = -0.7 * float(torch.finfo(torch.float32).max)
 
