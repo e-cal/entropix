@@ -309,7 +309,7 @@ def should_stop_branch(token_text, token_context, metrics):
     return False
 
 def feedback(messages: list[Message]):
-    MY_API_KEYS = "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"
+    MY_API_KEYS = ""
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=MY_API_KEYS)
 
     completion = client.chat.completions.create(
