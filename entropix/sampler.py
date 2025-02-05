@@ -165,8 +165,8 @@ def branching_sample(logits: torch.Tensor, metrics: TokenMetrics, cfg: SamplerCo
     """
 
     # TODO: should we set temperature differently?
-    temp_adj = cfg.offsets.low_entropy_interaction_strength + cfg.coefficients.low_entropy_interaction_strength * metrics.interaction_strength
-    temperature = min(1.5, cfg.temperature * temp_adj)
+    # temp_adj = cfg.offsets.low_entropy_interaction_strength + cfg.coefficients.low_entropy_interaction_strength * metrics.interaction_strength
+    # temperature = min(1.5, cfg.temperature * temp_adj)
 
     # NOTE: only using temperature sampling in branches right now
     # TODO: cleanup / setup AB tests to find best branch sampling method
@@ -224,7 +224,8 @@ def branching_sample(logits: torch.Tensor, metrics: TokenMetrics, cfg: SamplerCo
     # sampled_tokens = torch.multinomial(probs, num_samples=num_samples_to_draw, generator=generator)
 
     # currently the shape is [[num_samples]] help me flatten it to just [num_samples]
-    sampled_tokens = temperature_sample(logits, temperature=temperature, num_samples=num_samples_to_draw, generator=generator)
+    # sampled_tokens = temperature_sample(logits, temperature=temperature, num_samples=num_samples_to_draw, generator=generator)
+    sampled_tokens = torch.topk(probs, k=num_samples_to_draw, dim=-1).indices
     # sampled_tokens = sampled_tokens.squeeze(0)  # Remove the extra dimension
     return sampled_tokens.to(torch.int32)  
 
